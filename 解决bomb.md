@@ -29,3 +29,28 @@ x/s 刚才复制的
 
 第1关
 
+```c++
+creep@creep-virtual-machine:~/Desktop/task1$ gdb bomb
+(gdb) break phase_1
+Breakpoint 1 at 0x8048a09
+(gdb) run 
+Starting program: /home/creep/Desktop/task1/bomb 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+Welcome to my fiendish little bomb. You have 7 phases with
+which to blow yourself up. Have a nice day!
+1
+
+BOOM!!!
+The bomb has blown up.
+1
+
+Breakpoint 1, 0x08048a09 in phase_1 ()
+(gdb) ni 10
+0x08048a2b in phase_1 ()
+(gdb) x/dw $ebp-0x18+4
+0xffffcf74:     1101933764 #第一个答案
+(gdb) x/dw $ebp-0x18
+0xffffcf70:     -2046820352 #第二个答案
+```
+
